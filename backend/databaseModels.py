@@ -1,7 +1,7 @@
 from peewee import *
 from datetime import date
 
-db = SqliteDatabase('dev.db')
+db = SqliteDatabase('./backend/dev.db')
 
 class BaseModel(Model):
     class Meta:
@@ -33,6 +33,6 @@ class Comment(BaseModel):
 db.connect()
 db.create_tables(models = [User, Post, Comment])
 
-myUser = User(firstName = 'Kyle', secondName = 'Jackson', middleName = 'Bob', birthDate = date(2006, 1, 6), city = 'New-York', school = 'Monaco School', avatarURL = 'https://google.com')
-myUser.save()
-print(myUser.firstName, myUser.birthDate)
+# myUser = User(firstName = 'Kyle', secondName = 'Jackson', middleName = 'Bob', birthDate = date(2006, 1, 6), city = 'New-York', school = 'Monaco School', avatarURL = 'https://google.com')
+# myUser.save()
+# print(myUser.firstName, myUser.birthDate)
