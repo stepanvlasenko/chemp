@@ -29,10 +29,3 @@ class Comment(BaseModel):
     content = TextField()
     publishDate = DateField()
     imageURL = CharField()
-
-db.connect()
-db.create_tables(models = [User, Post, Comment])
-
-# myUser = User(firstName = 'Kyle', secondName = 'Jackson', middleName = 'Bob', birthDate = date(2006, 1, 6), city = 'New-York', school = 'Monaco School', avatarURL = 'https://google.com')
-# myUser.save()
-# print(myUser.firstName, myUser.birthDate)
