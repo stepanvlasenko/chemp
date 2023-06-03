@@ -1,0 +1,26 @@
+.button {
+    padding: 8px 32px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 12px;
+    
+    color: white;
+}
+
+.button:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.button--green {
+    background-color: #A4BC92;
+}
+
+.button--blue {
+    background-color: #3A98B9;
+}
