@@ -1,7 +1,7 @@
 from databaseModels import db, Comment
 from datetime import date
 
-def createComment(userId: int, postId: int, content: str, publishDate: date, imageURL: str):
+def createComment(userId: int, postId: int, content: str, publishDate: date, imageURL: str) -> int:
     try:
         comment = Comment.create(
             userId = userId,
@@ -14,7 +14,7 @@ def createComment(userId: int, postId: int, content: str, publishDate: date, ima
     except:
         return 0
     
-def readComment(id: int):
+def readComment(id: int) -> Comment:
     try:
         comment = Comment.get(Comment.id == id)
         return comment
@@ -22,13 +22,21 @@ def readComment(id: int):
         return 0
 
 # ??????
-def updateComment():
+def updateComment(id: int, **args) -> int:
     try:
+        updatedData = {}
+        for key in args:
+            if key in Comment._meta.fields:
+                updatedData[Comment._meta.fields[key]] = args[key]
+
+        comment = Comment.update(args).where(Comment.id == id)
+        comment.execute()
         return 1
     except:
         return 0
 
-def deletePost(id: int):
+
+def deletePost(id: int) -> int:
     try:
         comment = readComment(id)
         comment.delete_instance()
