@@ -8,6 +8,7 @@ class BaseModel(Model):
         database = db
 
 class User(BaseModel):
+    email = CharField()
     firstName = CharField()
     secondName = CharField()
     middleName = CharField()

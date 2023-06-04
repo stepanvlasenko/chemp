@@ -1,22 +1,28 @@
 from databaseModels import db, User
 from datetime import date
 
-def createUser(firstName: str, secondName: str, middleName: str, birthDate: date, city: str, school: str, avatarURL: str) -> int:
+def createUser(email: str, firstName: str, secondName: str, middleName: str, birthDate: date, city: str, school: str, avatarURL: str) -> int:
     try:
-        user = User.create(
-            firstName = firstName,
-            secondName = secondName,
-            middleName = middleName,
-            birthDate = birthDate,
-            city = city,
-            school = school,
-            avatarURL = avatarURL
-        )
-        return user.id
+        user = User.get_or_none(User.email == email)
+
+        if (user != None):
+            return user.id
+        else:
+            user = User.create(
+                email = email,
+                firstName = firstName,
+                secondName = secondName,
+                middleName = middleName,
+                birthDate = birthDate,
+                city = city,
+                school = school,
+                avatarURL = avatarURL
+            )
+            return user.id
     except:
         return 0
     
-def readUser(id: int) -> (User | int):
+def readUser(id: int) -> User:
     try:
         user = User.get(User.id == id)
         return user
