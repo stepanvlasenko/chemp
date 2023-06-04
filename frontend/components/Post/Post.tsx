@@ -1,9 +1,9 @@
-import './css/post.css'
+import './post.css'
 
 /**
  * ToDo:
  * Move to 'types.ts'
- * Change publishDate type
+ * request user
  */
 interface IPost {
     id: number

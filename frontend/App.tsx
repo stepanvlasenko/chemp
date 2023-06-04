@@ -1,6 +1,6 @@
-import BaseButton from "./components/BaseButton"
-import BaseInput from "./components/BaseInput"
-import Post from "./components/Post"
+import BaseButton from "./components/BaseButton/BaseButton"
+import BaseInput from "./components/BaseInput/BaseInput"
+import Post from "./components/Post/Post"
 
 import './app.css'
 

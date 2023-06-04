@@ -1,4 +1,4 @@
-import './css/baseInput.css'
+import './baseInput.css'
 
 interface BaseInputProps {
     placeholder: string 

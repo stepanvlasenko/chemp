@@ -1,9 +1,9 @@
 import { MouseEventHandler } from 'react'
-import './css/baseButton.css'
+import './baseButton.css'
 
 interface BaseButtonProps{
     text: string 
-    color?: "green"|"blue"
+    color?: "green" | "blue"
     onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
