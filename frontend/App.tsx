@@ -1,6 +1,7 @@
 import BaseButton from "./components/BaseButton/BaseButton"
 import BaseInput from "./components/BaseInput/BaseInput"
 import Post from "./components/Post/Post"
+import TheHeader from "./components/TheHeader/TheHeader"
 
 import './app.css'
 
@@ -16,6 +17,7 @@ const testPost = {
 export default function App() {
     return (
         <>
+            <TheHeader></TheHeader>
             <BaseButton text="text" color="blue" onClick={(event) =>{
                 console.log('clicked', event) 
             }}></BaseButton>
