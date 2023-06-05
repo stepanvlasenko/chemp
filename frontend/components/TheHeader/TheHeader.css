@@ -1,0 +1,60 @@
+.header{
+    display: flex;
+    padding: 16px 12px;
+    align-items: center;
+    gap: 10px;
+    color: white;
+
+    background: #A4BC92;
+    border-radius: 0px 0px 12px 12px;
+    justify-content: space-between;
+    }
+
+.lorem{
+    font-family: 'Ubuntu Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 32px;
+
+    color: #FFFFFF;
+
+}
+
+.navigation_link{
+    color: white;
+
+    font-family: 'Ubuntu Mono';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.navigation_list{
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    gap: 24px;
+    align-items: center;
+}
+
+.navigation{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.navigation_profile{
+    display: block;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.profile_icon{
+    height: 16px;
+    width: 16px;
+    background-color: #A4BC92;
+    margin: 8px;
+}
