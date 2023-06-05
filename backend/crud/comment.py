@@ -36,7 +36,7 @@ def updateComment(id: int, **args) -> int:
         return 0
 
 
-def deletePost(id: int) -> int:
+def deleteComment(id: int) -> int:
     try:
         comment = readComment(id)
         comment.delete_instance()
