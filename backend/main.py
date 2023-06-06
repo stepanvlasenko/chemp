@@ -14,8 +14,10 @@ def apiCreateUser():
     data = request.form
     return createUser(**data)
 
-@app.route('/user/<int:id>', methods=['GET', 'PUT', 'DELETE'])
-def apiIdUser(id: int):
+@app.route('/user', methods=['GET', 'PUT', 'DELETE'])
+def apiIdUser():
+    id = request.args['id']
+    
     if request.method == 'GET':
         return readUser(id)
     if request.method == 'PUT':
@@ -30,8 +32,10 @@ def apiCreatePost():
     data = request.form
     return createPost(**data)
 
-@app.route('/post/<int:id>', methods=['GET', 'PUT', 'DELETE'])
-def apiIdPost(id: int):
+@app.route('/post', methods=['GET', 'PUT', 'DELETE'])
+def apiIdPost():
+    id = request.args['id']
+
     if request.method == 'GET':
         return readPost(id)
     if request.method == 'PUT':
@@ -46,8 +50,10 @@ def apiCreateComment():
     data = request.form
     return createComment(**data)
 
-@app.route('/comment/<int:id>', methods=['GET', 'PUT', 'DELETE'])
-def apiIdComment(id: int):
+@app.route('/comment', methods=['GET', 'PUT', 'DELETE'])
+def apiIdComment():
+    id = request.args['id']
+
     if request.method == 'GET':
         return readComment(id)
     if request.method == 'PUT':
