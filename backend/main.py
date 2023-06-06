@@ -12,18 +12,15 @@ def apiCreateUser():
     data = request.form
     return createUser(**data)
 
-@app.get('/user/<int:id>')
-def apiGetUser(id: int):
-    return readUser(id)
-
-@app.put('/user/<int:id>')
-def apiUpdateUser(id: int):
-    data = request.form
-    return updateUser(id, **data)
-
-@app.delete('/user/<int:id>')
-def apiDeleteUser(id: int):
-    return deleteUser(id)
+@app.route('/user/<int:id>', methods=['GET', 'PUT', 'DELETE'])
+def apiIdUser(id: int):
+    if request.method == 'GET':
+        return readUser(id)
+    if request.method == 'PUT':
+        data = request.form
+        return updateUser(id, **data)
+    if request.method == 'DELETE':
+        return deleteUser(id)
 
 # Post api
 @app.post('/post')
@@ -31,18 +28,15 @@ def apiCreatePost():
     data = request.form
     return createPost(**data)
 
-@app.get('/post/<int:id>')
-def apiGetPost(id: int):
-    return readPost(id)
-
-@app.put('/post/<int:id>')
-def apiUpdatePost(id: int):
-    data = request.form
-    return updatePost(id, **data)
-
-@app.delete('/post/<int:id>')
-def apiDeletePost(id: int):
-    return deletePost(id)
+@app.route('/post/<int:id>', methods=['GET', 'PUT', 'DELETE'])
+def apiIdPost(id: int):
+    if request.method == 'GET':
+        return readPost(id)
+    if request.method == 'PUT':
+        data = request.form
+        return updatePost(id, **data)
+    if request.method == 'DELETE':
+        return deletePost(id)
 
 # Comment api
 @app.post('/comment')
@@ -50,17 +44,14 @@ def apiCreateComment():
     data = request.form
     return createComment(**data)
 
-@app.get('/comment/<int:id>')
-def apiGetComment(id: int):
-    return readComment(id)
-
-@app.put('/comment/<int:id>')
-def apiUpdateUser(id: int):
-    data = request.form
-    return updateComment(id, **data)
-
-@app.delete('/comment/<int:id>')
-def apiDeleteUser(id: int):
-    return deleteComment(id)
+@app.route('/comment/<int:id>', methods=['GET', 'PUT', 'DELETE'])
+def apiIdComment(id: int):
+    if request.method == 'GET':
+        return readComment(id)
+    if request.method == 'PUT':
+        data = request.form
+        return updateComment(id, **data)
+    if request.method == 'DELETE':
+        return deleteComment(id)
 
 app.run()
