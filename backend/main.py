@@ -1,10 +1,12 @@
 from flask import Flask, request
+from flask_cors import CORS
 
 from crud.user import *
 from crud.post import *
 from crud.comment import *
 
 app = Flask(__name__)
+CORS(app)
 
 # User api
 @app.post('/user')
