@@ -1,65 +1,67 @@
 from flask import Flask, request
 from flask_cors import CORS
 
-from crud.user import *
-from crud.post import *
-from crud.comment import *
+from crud import *
 
 app = Flask(__name__)
 CORS(app)
 
 # User api
+userAPI = modelCRUD(User)
+postAPI = modelCRUD(Post)
+commentAPI = modelCRUD(Comment)
+
 @app.post('/user')
 def apiCreateUser():
-    data = request.form
-    return createUser(**data)
+    data = request.json
+    return userAPI['create'](data).__dict__
 
 @app.route('/user', methods=['GET', 'PUT', 'DELETE'])
 def apiIdUser():
     id = request.args['id']
     
     if request.method == 'GET':
-        return readUser(id)
+        return userAPI['read'](id).__dict__
     if request.method == 'PUT':
-        data = request.form
-        return updateUser(id, **data)
+        data = request.json
+        return userAPI['update'](id, data).__dict__
     if request.method == 'DELETE':
-        return deleteUser(id)
+        return userAPI['delete'](id).__dict__
 
 # Post api
 @app.post('/post')
 def apiCreatePost():
     data = request.form
-    return createPost(**data)
+    return postAPI['create'](data).__dict__
 
 @app.route('/post', methods=['GET', 'PUT', 'DELETE'])
 def apiIdPost():
     id = request.args['id']
 
     if request.method == 'GET':
-        return readPost(id)
+        return postAPI['read'](id).__dict__
     if request.method == 'PUT':
         data = request.form
-        return updatePost(id, **data)
+        return postAPI['update'](id, data).__dict__
     if request.method == 'DELETE':
-        return deletePost(id)
+        return postAPI['delete'](id).__dict__
 
 # Comment api
 @app.post('/comment')
 def apiCreateComment():
     data = request.form
-    return createComment(**data)
+    return commentAPI['create'](data).__dict__
 
 @app.route('/comment', methods=['GET', 'PUT', 'DELETE'])
 def apiIdComment():
     id = request.args['id']
 
     if request.method == 'GET':
-        return readComment(id)
+        return commentAPI['read'](id).__dict__
     if request.method == 'PUT':
         data = request.form
-        return updateComment(id, **data)
+        return commentAPI['update'](id, data).__dict__
     if request.method == 'DELETE':
-        return deleteComment(id)
+        return commentAPI['delete'](id).__dict__
 
 app.run()
