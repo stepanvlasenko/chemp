@@ -1,0 +1,39 @@
+.profile-block{
+    display: flex;
+    border-radius: 12px;
+    gap: 36px;
+}
+
+.profile-block__icon{
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.profile-block__info{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding: 16px 12px;
+
+}
+
+.profile-block__inf{
+    font-family: 'Ubuntu Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.profile-block__ne-imput{
+    padding: 4px 16px;
+    margin-top: 12px;
+    background: #F2F4EF;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    font-size: 16px;
+}
