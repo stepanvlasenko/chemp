@@ -1,6 +1,5 @@
 from databaseModels import db, User, Post, Comment
 from playhouse.shortcuts import model_to_dict, update_model_from_dict
-from baseResponce import baseResponce
 
 def modelCRUD(model: (User | Post | Comment)):
     def create(data):
@@ -9,12 +8,12 @@ def modelCRUD(model: (User | Post | Comment)):
         if (model == User):
             user = User.get_or_none(User.email == data['email'])
             if (user != None):
-                return baseResponce(True, model_to_dict(user))
+                return model_to_dict(user)
             
         instance = model.create(**data)
         db.close()
 
-        responce = baseResponce(True, model_to_dict(instance))
+        responce = model_to_dict(instance)
         return responce
     
     def read(id: int):
@@ -22,7 +21,7 @@ def modelCRUD(model: (User | Post | Comment)):
         instance = model.get(model.id == id)
         db.close()
 
-        responce = baseResponce(True, model_to_dict(instance))
+        responce = model_to_dict(instance)
         return responce
     
     def update(id: int, data):
@@ -32,7 +31,7 @@ def modelCRUD(model: (User | Post | Comment)):
         instance.save()
         db.close()
 
-        responce = baseResponce(True, model_to_dict(instance))
+        responce = model_to_dict(instance)
         return responce
     
     def delete(id: int):
@@ -41,7 +40,7 @@ def modelCRUD(model: (User | Post | Comment)):
         instance.delete_instance()
         db.close()
 
-        responce = baseResponce(True, None)
+        responce =  True
         return responce
     
     return {
