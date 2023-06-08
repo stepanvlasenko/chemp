@@ -12,7 +12,7 @@ class User(BaseModel):
     firstName = CharField()
     secondName = CharField()
     middleName = CharField()
-    birthDate = DateField()
+    birthDate = CharField()
     city = CharField()
     school = CharField()
     avatarURL = CharField()
@@ -21,12 +21,12 @@ class Post(BaseModel):
     userId = IntegerField()
     title = CharField()
     content = TextField()
-    publishDate = DateField()
+    publishDate = CharField()
     imageURL = CharField()
 
 class Comment(BaseModel):
     userId = IntegerField()
     postId = IntegerField()
     content = TextField()
-    publishDate = DateField()
+    publishDate = CharField()
     imageURL = CharField()
