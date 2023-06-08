@@ -1,4 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+
+import { RawPost } from '../../assets/ts/types'
+
+import { useAPI } from '../../assets/ts/api'
+import { sendFile, getFileURL } from '../../assets/ts/firebase'
 
 import BaseButton from '../../components/BaseButton/BaseButton'
 import BaseInput from '../../components/BaseInput/BaseInput'
@@ -8,7 +14,13 @@ import './createPost.css'
 type inputEventHandler = React.ChangeEventHandler<HTMLInputElement>
 type buttonEventHandler = React.MouseEventHandler<HTMLButtonElement>
 
-export default function CreatePost() {
+interface CreatePostProps {
+    userId: number
+}
+
+export default function CreatePost({ userId }: CreatePostProps) {
+    const postAPI = useAPI().usePostAPI()
+
     const [title, setTitle] = useState('')    
     const [content, setContent] = useState('')    
     const [file, setFile] = useState<File>()
@@ -30,15 +42,33 @@ export default function CreatePost() {
         }
     }
 
-    const handleSubmit: buttonEventHandler = (event) => {
+    const handleSubmit: buttonEventHandler = async (event) => {
         event.preventDefault()
 
+        if (!(title && content && file)) return
+
+        const blob = new Blob([file])
+        const fileUint8Array = new Uint8Array(await blob.arrayBuffer())
+
+        const fileName = uuidv4()
+
+        await sendFile('post', fileName, fileUint8Array)
+        const fileURL = await getFileURL('post', fileName)
         
+        const thisDate = new Date()
+        const today = `${thisDate.getDay()}.${thisDate.getMonth()}.${thisDate.getFullYear()}`
+
+        const postData: RawPost = {
+            userId,
+            title,
+            content,
+            imageURL: fileURL,
+            publishDate: today
+        }
+        
+        await postAPI.createPost(postData)
     }
 
-    useEffect(() => {
-        console.log(title, content, file)
-    }, [title, content, file])
     return (
         <div className='create-post-page'>
             <h1>Создание поста</h1>
