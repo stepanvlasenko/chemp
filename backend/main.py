@@ -14,54 +14,54 @@ commentAPI = modelCRUD(Comment)
 @app.post('/user')
 def apiCreateUser():
     data = request.json
-    return userAPI['create'](data).__dict__
+    return userAPI['create'](data)
 
 @app.route('/user', methods=['GET', 'PUT', 'DELETE'])
 def apiIdUser():
     id = request.args['id']
-    
+
     if request.method == 'GET':
-        return userAPI['read'](id).__dict__
+        return userAPI['read'](id)
     if request.method == 'PUT':
         data = request.json
-        return userAPI['update'](id, data).__dict__
+        return userAPI['update'](id, data)
     if request.method == 'DELETE':
-        return userAPI['delete'](id).__dict__
+        return userAPI['delete'](id)
 
 # Post api
 @app.post('/post')
 def apiCreatePost():
     data = request.form
-    return postAPI['create'](data).__dict__
+    return postAPI['create'](data)
 
 @app.route('/post', methods=['GET', 'PUT', 'DELETE'])
 def apiIdPost():
     id = request.args['id']
 
     if request.method == 'GET':
-        return postAPI['read'](id).__dict__
+        return postAPI['read'](id)
     if request.method == 'PUT':
         data = request.form
-        return postAPI['update'](id, data).__dict__
+        return postAPI['update'](id, data)
     if request.method == 'DELETE':
-        return postAPI['delete'](id).__dict__
+        return postAPI['delete'](id)
 
 # Comment api
 @app.post('/comment')
 def apiCreateComment():
     data = request.form
-    return commentAPI['create'](data).__dict__
+    return commentAPI['create'](data)
 
 @app.route('/comment', methods=['GET', 'PUT', 'DELETE'])
 def apiIdComment():
     id = request.args['id']
 
     if request.method == 'GET':
-        return commentAPI['read'](id).__dict__
+        return commentAPI['read'](id)
     if request.method == 'PUT':
         data = request.form
-        return commentAPI['update'](id, data).__dict__
+        return commentAPI['update'](id, data)
     if request.method == 'DELETE':
-        return commentAPI['delete'](id).__dict__
+        return commentAPI['delete'](id)
 
 app.run()
