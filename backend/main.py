@@ -31,7 +31,7 @@ def apiIdUser():
 # Post api
 @app.post('/post')
 def apiCreatePost():
-    data = request.form
+    data = request.json
     return postAPI['create'](data)
 
 @app.route('/post', methods=['GET', 'PUT', 'DELETE'])
@@ -41,7 +41,7 @@ def apiIdPost():
     if request.method == 'GET':
         return postAPI['read'](id)
     if request.method == 'PUT':
-        data = request.form
+        data = request.json
         return postAPI['update'](id, data)
     if request.method == 'DELETE':
         return postAPI['delete'](id)
@@ -49,7 +49,7 @@ def apiIdPost():
 # Comment api
 @app.post('/comment')
 def apiCreateComment():
-    data = request.form
+    data = request.json
     return commentAPI['create'](data)
 
 @app.route('/comment', methods=['GET', 'PUT', 'DELETE'])
@@ -59,7 +59,7 @@ def apiIdComment():
     if request.method == 'GET':
         return commentAPI['read'](id)
     if request.method == 'PUT':
-        data = request.form
+        data = request.json
         return commentAPI['update'](id, data)
     if request.method == 'DELETE':
         return commentAPI['delete'](id)
