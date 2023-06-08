@@ -1,10 +1,10 @@
-.profile-block{
+.profile-block {
     display: flex;
     border-radius: 12px;
     gap: 36px;
 }
 
-.profile-block__icon{
+.profile-block__icon {
     width: 340px;
     height: 340px;
     border-radius: 50%;
@@ -12,7 +12,7 @@
     flex-grow: 0;
 }
 
-.profile-block__info{
+.profile-block__info {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -22,14 +22,7 @@
 
 }
 
-.profile-block__inf{
-    font-family: 'Ubuntu Mono';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-}
-
-.profile-block__ne-imput{
+.profile-block__value {
     padding: 4px 16px;
     margin-top: 12px;
     background: #F2F4EF;

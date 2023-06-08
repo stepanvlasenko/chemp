@@ -14,18 +14,17 @@ export default function PostUserInfo({
     imageURL,
     middleName,
     secondName,
-}:PostUserInfoProps) {
-
+}: PostUserInfoProps) {
     return (
         <div className="post-user-info">
             <div className="post-user-info__info">
                 <img className="post-user-info__icon" src={imageURL}  />
                 <div className="post-user-info__fio">
-                    {secondName} {firstName} {middleName}
+                    <h1>{middleName} {firstName} {secondName}</h1>
                 </div>
             </div>
             <div className="post-user-info__date">
-                {date}
+                <h2>{date}</h2>
             </div>
         </div>
     )

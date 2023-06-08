@@ -1,51 +1,41 @@
+import { IUser } from '../../assets/ts/types'
+
 import './ProfileBlock.css'
 
-interface ProfileBlockProps{
-    imageURL: string
-    SecondName: string
-    FirstName: string
-    middleName: string
-    city: string
-    dateBirthday: string
-    school: string 
+interface ProfileBlockProps {
+    user: IUser
 }
 
 export default function ProfileBlock({
-    FirstName,
-    SecondName,
-    city,
-    dateBirthday,
-    imageURL,
-    middleName,
-    school
-}:ProfileBlockProps) {
+    user
+}: ProfileBlockProps) {
 
-    return(
+    return (
         <div className="profile-block">
-            <img className="profile-block__icon" src={imageURL} />
+            <img className="profile-block__icon" src={user.avatarURL} />
             <div className="profile-block__info">
-                <div className="profile-block__inf">
-                        Фамилия Имя Отчество:
-                    <div className="profile-block__ne-imput">
-                        {SecondName} {FirstName} {middleName}
+                <div>
+                    <h2>Фамилия Имя Отчество:</h2>
+                    <div className="profile-block__value">
+                        {user.middleName} {user.firstName} {user.secondName}
                     </div>
                 </div>
-                <div className="profile-block__inf">
-                    Город проживания:
-                    <div className="profile-block__ne-imput">
-                        {city}
+                <div>
+                    <h2>Город проживания:</h2>
+                    <div className="profile-block__value">
+                        {user.city}
                     </div>    
                 </div>
-                <div className="profile-block__inf">
-                    Дата Рождения:
-                    <div className="profile-block__ne-imput">
-                        {dateBirthday}
+                <div>
+                    <h2>Дата Рождения:</h2>
+                    <div className="profile-block__value">
+                        {user.birthDate}
                     </div>
                 </div>
-                <div className="profile-block__inf">
-                    Школа:
-                    <div className="profile-block__ne-imput">
-                        {school}
+                <div>
+                    <h2>Школа:</h2>
+                    <div className="profile-block__value">
+                        {user.school}
                     </div>
                 </div>
             </div>
