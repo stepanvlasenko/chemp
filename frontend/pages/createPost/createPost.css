@@ -1,0 +1,18 @@
+.create-post-page {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 48px;  
+}
+
+.create-post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.create-post-form__input {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1
+}

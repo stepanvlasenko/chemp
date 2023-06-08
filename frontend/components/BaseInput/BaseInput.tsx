@@ -1,25 +1,24 @@
 import './baseInput.css'
 
 interface BaseInputProps {
-    placeholder: string 
-    onChange?: (input:string) => void
+    type: string
+    placeholder?: string
+    name?: string
+    id?: string
+    onChange?: React.ChangeEventHandler<HTMLInputElement>
 }
 
-export default function BaseInput({placeholder, onChange}: BaseInputProps){
+export default function BaseInput({type, placeholder = '', name = '', id = '', onChange}: BaseInputProps){
     
     return (
         <>
             <input
-                type="text"
-                className="input"
+                type={type}
                 placeholder={placeholder}
-                onChange={ function (event) {
-                    const value: string = event.target.value
-
-                    if (onChange) {
-                        onChange(value)
-                    }
-                }}
+                name={name}
+                id={id}
+                className="input"
+                onChange={onChange}
             />
         </>
     )
