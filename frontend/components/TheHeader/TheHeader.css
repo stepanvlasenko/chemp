@@ -1,4 +1,4 @@
-.header{
+.header {
     display: flex;
     padding: 16px 12px;
     align-items: center;
@@ -10,7 +10,7 @@
     justify-content: space-between;
     }
 
-.lorem{
+.lorem {
     font-family: 'Ubuntu Mono';
     font-style: normal;
     font-weight: 400;
@@ -21,7 +21,7 @@
 
 }
 
-.navigation_link{
+.navigation__link {
     color: white;
 
     font-family: 'Ubuntu Mono';
@@ -31,7 +31,7 @@
     line-height: 24px;
 }
 
-.navigation_list{
+.navigation__list {
     display: flex;
     padding: 0px;
     margin: 0px;
@@ -40,21 +40,24 @@
     align-items: center;
 }
 
-.navigation{
+.navigation {
     display: flex;
     gap: 12px;
     align-items: center;
 }
 
-.navigation_profile{
+.navigation__profile {
     display: block;
-    background-color: white;
-    border-radius: 50%;
+    border-radius: 100%;
+
+    width: 32px;
+    height: 32px;
 }
 
-.profile_icon{
-    height: 16px;
-    width: 16px;
-    background-color: #A4BC92;
-    margin: 8px;
+.navigation__avatar {
+    border-radius: inherit;
+
+    width: inherit;
+    height: inherit;
+    aspect-ratio: 1;
 }
