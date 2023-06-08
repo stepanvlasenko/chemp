@@ -9,6 +9,7 @@ export interface IUser {
     school: string
     avatarURL: string
 }
+export type RawUser  = Omit<IUser, 'id'>
 
 export interface IPost {
     id: number
@@ -18,6 +19,7 @@ export interface IPost {
     publishDate: string
     imageURL: string
 }
+export type RawPost  = Omit<IPost, 'id'>
 
 export interface IComment {
     id: number
@@ -27,3 +29,4 @@ export interface IComment {
     publishDate: string
     imageURL: string
 }
+export type RawComment  = Omit<IComment, 'id'>
