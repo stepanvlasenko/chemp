@@ -21,7 +21,7 @@ export default function App() {
             <BaseButton text="text" color="blue" onClick={(event) =>{
                 console.log('clicked', event) 
             }}></BaseButton>
-            <BaseInput placeholder="abc" onChange={(input) =>{
+            <BaseInput type="text" placeholder="abc" onChange={(input) =>{
                 console.log(input)
             }}></BaseInput> 
             <div className="test">
