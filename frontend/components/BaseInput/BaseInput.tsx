@@ -8,7 +8,7 @@ interface BaseInputProps {
     onChange?: React.ChangeEventHandler<HTMLInputElement>
 }
 
-export default function BaseInput({type, placeholder = '', name = '', id = '', onChange}: BaseInputProps){
+export default function BaseInput({type, placeholder = '', name, id, onChange}: BaseInputProps){
     
     return (
         <>

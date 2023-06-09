@@ -9,7 +9,7 @@ import { sendFile, getFileURL } from '../../assets/ts/firebase'
 import BaseButton from '../../components/BaseButton/BaseButton'
 import BaseInput from '../../components/BaseInput/BaseInput'
 
-import './createPost.css'
+import './CreatePost.css'
 
 type inputEventHandler = React.ChangeEventHandler<HTMLInputElement>
 type buttonEventHandler = React.MouseEventHandler<HTMLButtonElement>
@@ -70,8 +70,8 @@ export default function CreatePost({ userId }: CreatePostProps) {
     }
 
     return (
-        <div className='create-post-page'>
-            <h1>Создание поста</h1>
+        <div className='create-post'>
+            <h1 className='create-post__title'>Создание поста</h1>
             <form className='create-post-form'>
                 <div className='create-post-form__input'>
                     <h2>Заголовок</h2>

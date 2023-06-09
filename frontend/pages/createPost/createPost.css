@@ -1,8 +1,12 @@
-.create-post-page {
+.create-post {
     display: flex;
     flex-direction: column;
     padding: 16px;
     gap: 48px;  
+}
+
+.create-post__title {
+    margin: 0 auto
 }
 
 .create-post-form {

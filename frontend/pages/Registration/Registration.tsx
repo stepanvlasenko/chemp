@@ -68,7 +68,7 @@ export default function Registration() {
                     </div>
                     <div className="column__item">
                         <h2>Пароль</h2>
-                        <BaseInput type="text" placeholder="Пароль" name="password" />
+                        <BaseInput type="password" placeholder="Пароль" name="password" />
                     </div>
                 </div>
                 <div className="form__column">
