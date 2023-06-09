@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask_cors import CORS
 
 from crud import *
+from authentication import *
 
 app = Flask(__name__)
 CORS(app)
@@ -63,5 +64,11 @@ def apiIdComment():
         return commentAPI['update'](id, data)
     if request.method == 'DELETE':
         return commentAPI['delete'](id)
+
+@app.get('/authentication')
+def apiAuthentication():
+    email = request.args['email']
+    password = request.args['password']
+    return authentication(email, password)
 
 app.run()
