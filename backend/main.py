@@ -69,6 +69,6 @@ def apiIdComment():
 def apiAuthentication():
     email = request.args['email']
     password = request.args['password']
-    return authentication(email, password)
+    return authenticate(email, password)
 
 app.run()
