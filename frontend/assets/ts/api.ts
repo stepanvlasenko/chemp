@@ -5,7 +5,8 @@ export const useAPI = () => {
     const useUserAPI = () => userAPI
     const usePostAPI = () => postAPI
     const useCommentAPI = () => commentAPI
-    return { useUserAPI, usePostAPI, useCommentAPI }
+    const useAuthenticationAPI = () => authenticationAPI
+    return { useUserAPI, usePostAPI, useCommentAPI, useAuthenticationAPI }
 }
 const userAPI = {
     getUser: async (id: number) => {
@@ -111,7 +112,7 @@ const commentAPI = {
         return responce
     },
     deleteComment: async (id: number) => {
-        const responce = await $fetch('http://127.0.0.1:5000/post', {
+        const responce = await $fetch('http://127.0.0.1:5000/comment', {
             method: 'DELETE',
             params: {
                 id,
@@ -119,4 +120,17 @@ const commentAPI = {
         })
         return responce
     },
+}
+
+const authenticationAPI = {
+    authenticate: async (email: string, password: string) => {
+        const responce = await $fetch('http://127.0.0.1:5000/authentication', {
+            method: 'GET',
+            params: {
+                email,
+                password
+            },
+        })
+        return responce
+    }
 }
