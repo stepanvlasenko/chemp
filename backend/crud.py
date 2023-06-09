@@ -18,6 +18,13 @@ def modelCRUD(model: (User | Post | Comment)):
     
     def read(id: int):
         db.connect()
+
+        if (model == User):
+            user = User.get(User.id == id)
+            responce = model_to_dict(user).copy()
+            responce.pop('password')
+            return responce
+
         instance = model.get(model.id == id)
         db.close()
 

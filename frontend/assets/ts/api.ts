@@ -1,5 +1,5 @@
 import { $fetch } from 'ofetch'
-import { RawComment, RawPost, RawUser } from './types'
+import { IUser, RawComment, RawPost, RawUser } from './types'
 
 export const useAPI = () => {
     const useUserAPI = () => userAPI
@@ -9,7 +9,7 @@ export const useAPI = () => {
 }
 const userAPI = {
     getUser: async (id: number) => {
-        const responce = await $fetch('http://127.0.0.1:5000/user', {
+        const responce = await $fetch<IUser>('http://127.0.0.1:5000/user', {
             method: 'GET',
             params: {
                 id,

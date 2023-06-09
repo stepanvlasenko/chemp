@@ -9,7 +9,9 @@ export interface IUser {
     school: string
     avatarURL: string
 }
-export type RawUser  = Omit<IUser, 'id'>
+export type RawUser  = Omit<IUser, 'id'> & {
+    password: string
+}
 
 export interface IPost {
     id: number

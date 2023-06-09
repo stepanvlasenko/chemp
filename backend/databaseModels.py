@@ -9,6 +9,7 @@ class BaseModel(Model):
 
 class User(BaseModel):
     email = CharField()
+    password = CharField()
     firstName = CharField()
     secondName = CharField()
     middleName = CharField()
