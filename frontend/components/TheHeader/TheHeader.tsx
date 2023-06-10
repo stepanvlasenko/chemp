@@ -1,10 +1,10 @@
+import { useUserStore } from '../../store/userStore'
 import './TheHeader.css'
 
-interface HeaderProps {
-    avatarURL?: string
-}
+export default function TheHeader() {
+    const currentUser = useUserStore((state) => state.user)
 
-export default function TheHeader({ avatarURL = "https://upload.wikimedia.org/wikipedia/commons/7/70/Solid_white.svg" }: HeaderProps) {
+    const avatarURL = currentUser?.avatarURL || "https://upload.wikimedia.org/wikipedia/commons/7/70/Solid_white.svg"
 
     return (
         <header className="header">

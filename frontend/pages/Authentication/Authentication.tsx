@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { useAPI } from '../../assets/ts/api'
+import { useUserStore } from '../../store/userStore'
 
 import BaseButton from '../../components/BaseButton/BaseButton'
 import BaseInput from '../../components/BaseInput/BaseInput'
@@ -9,8 +10,10 @@ import './Authentication.css'
 type buttonEventHandler = React.MouseEventHandler<HTMLButtonElement>
 
 export default function Authentication() {
-    const authenticationAPI = useAPI().useAuthenticationAPI()
+    const setUser = useUserStore((state) => state.setUser)
+    const currentUser = useUserStore((state) => state.user)
 
+    const authenticationAPI = useAPI().useAuthenticationAPI()
     const form = useRef<HTMLFormElement>(null)
 
     const handleSubmit: buttonEventHandler = async (event) => {
@@ -33,7 +36,7 @@ export default function Authentication() {
         if (responce.status == false) {
             alert(responce.data)
         } else {
-            alert('Успешная авторизация.')
+            setUser(responce.data)
         }
     }
 

@@ -26,11 +26,10 @@ export default function Registration() {
         if (!form.current) return
 
         const formData = new FormData(form.current)
-
         const data = Object.fromEntries(formData.entries())
 
         if (!data.email || !data.password || !data.birthDate || !data.middleName || !data.firstName || !data.secondName || !data.avatar || !data.city || !data.school) {
-            alert('Вы заполнили не все поля')
+            alert('Вы заполнили не все поля.')
             return
         }
 
