@@ -1,0 +1,14 @@
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 12px;
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+}
+
+.form__image {
+    display: flex;
+    flex-direction: row;
+    gap: 8px
+}
