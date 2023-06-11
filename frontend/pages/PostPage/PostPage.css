@@ -23,7 +23,7 @@
 }
 
 .content__comments {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px
 }

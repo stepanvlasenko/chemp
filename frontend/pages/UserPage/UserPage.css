@@ -12,12 +12,8 @@
 }
 
 .last-posts__list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
     gap: 24px;
-}
-
-.last-posts__list div {
-    min-width: 45%;
 }

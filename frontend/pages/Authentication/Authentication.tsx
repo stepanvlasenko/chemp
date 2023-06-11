@@ -37,6 +37,7 @@ export default function Authentication() {
             alert(responce.data)
         } else {
             setUser(responce.data)
+            alert('Вы успешно авторизованы.')
         }
     }
 

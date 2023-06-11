@@ -31,6 +31,10 @@ export default function PostPage() {
 
         postAPI.getComments(postId).then(setComments)
     }, [])
+
+    const handleCreateComment = (comment: IComment) => {
+        setComments((comments) => [...comments, comment])
+    }
     return (
         <div className="post-page">
             <div className="post-page__content">
@@ -42,7 +46,7 @@ export default function PostPage() {
                 <div className="content__block">
                     <h1>Комментарии</h1>
                     <div className="content__comments">
-                        {post && <SendComment postId={post.id}/>}
+                        {post && <SendComment postId={post.id} onCreateComment={handleCreateComment}/>}
                         {comments.map((v) => (
                             <PostComment key={v.id} comment={v} />
                         ))}

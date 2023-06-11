@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAPI } from '../../assets/ts/api'
 
 import { IComment, IUser } from '../../assets/ts/types'
@@ -12,10 +12,9 @@ interface PostCommentProps {
 export default function PostComment({ comment }: PostCommentProps) {
     const userAPI = useAPI().useUserAPI()
     const [user, setUser] = useState<IUser>()
-    const r = async () => {
-        setUser(await userAPI.getUser(comment.userId))
-    }
-    r()
+    useEffect(() => {
+        userAPI.getUser(comment.userId).then(setUser)
+    }, [])
 
     return (
         <div className="post-comment">

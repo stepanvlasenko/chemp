@@ -65,6 +65,7 @@ export default function CreatePost() {
         }
         
         await postAPI.createPost(postData)
+        alert('Пост успешно добавлен.')
     }
 
     return (

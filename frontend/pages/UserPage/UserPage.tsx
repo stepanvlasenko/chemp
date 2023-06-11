@@ -33,7 +33,7 @@ export default function UserPage() {
                 <h1>Последние посты</h1>
                 <div className="last-posts__list">
                     {posts.map((v) => (
-                        <Link to={`/post/${v.id}`}><Post post={v} /></Link>
+                        <Link key={v.id} to={`/post/${v.id}`}><Post post={v} /></Link>
                     ))}
                 </div>
             </div>

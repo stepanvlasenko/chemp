@@ -18,7 +18,7 @@ export default function Post({post}: PostProps) {
     return (
         <div className='post'>
             <div className='post__info'>
-                <img className='info__avatar' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1280px-Image_created_with_a_mobile_phone.png' />
+                <img className='info__avatar' src={user?.avatarURL} />
                 <div className='info__bio'>
                     <h1>{user?.middleName} {user?.firstName} {user?.secondName}</h1>
                     <h2>{post.publishDate}</h2>
