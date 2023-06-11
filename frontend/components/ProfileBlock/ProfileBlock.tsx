@@ -9,7 +9,6 @@ interface ProfileBlockProps {
 export default function ProfileBlock({
     user
 }: ProfileBlockProps) {
-
     return (
         <div className="profile-block">
             <img className="profile-block__icon" src={user.avatarURL} />

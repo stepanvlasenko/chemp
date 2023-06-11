@@ -1,18 +1,14 @@
 import { useRef } from "react";
-
-import { RawUser } from "../../assets/ts/types";
-
-import { v4 as uuidv4 } from 'uuid'
-
 import { useAPI } from '../../assets/ts/api'
 import { sendFile, getFileURL } from '../../assets/ts/firebase'
+import { v4 as uuidv4 } from 'uuid'
+import { RawUser } from "../../assets/ts/types";
 
 import BaseButton from "../../components/BaseButton/BaseButton";
 import BaseInput from "../../components/BaseInput/BaseInput";
 
 import './Registration.css'
 
-type inputEventHandler = React.ChangeEventHandler<HTMLInputElement>
 type buttonEventHandler = React.MouseEventHandler<HTMLButtonElement>
 
 export default function Registration() {

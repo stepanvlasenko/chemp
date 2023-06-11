@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import { v4 as uuidv4 } from 'uuid'
-
-import { RawPost } from '../../assets/ts/types'
-
 import { useAPI } from '../../assets/ts/api'
+import { useParams } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid'
 import { sendFile, getFileURL } from '../../assets/ts/firebase'
+import { RawPost } from '../../assets/ts/types'
 
 import BaseButton from '../../components/BaseButton/BaseButton'
 import BaseInput from '../../components/BaseInput/BaseInput'
@@ -14,11 +13,10 @@ import './CreatePost.css'
 type inputEventHandler = React.ChangeEventHandler<HTMLInputElement>
 type buttonEventHandler = React.MouseEventHandler<HTMLButtonElement>
 
-interface CreatePostProps {
-    userId: number
-}
+export default function CreatePost() {
+    const params = useParams()
+    const userId = +(params.userId || 0)
 
-export default function CreatePost({ userId }: CreatePostProps) {
     const postAPI = useAPI().usePostAPI()
 
     const [title, setTitle] = useState('')    
@@ -56,7 +54,7 @@ export default function CreatePost({ userId }: CreatePostProps) {
         const fileURL = await getFileURL('post', fileName)
         
         const thisDate = new Date()
-        const today = `${thisDate.getDay()}.${thisDate.getMonth()}.${thisDate.getFullYear()}`
+        const today = `${thisDate.getDate()}.${thisDate.getMonth()}.${thisDate.getFullYear()}`
 
         const postData: RawPost = {
             userId,
