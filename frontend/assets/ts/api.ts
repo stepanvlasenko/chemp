@@ -1,6 +1,8 @@
 import { $fetch } from 'ofetch'
 import { IComment, IPost, IUser, RawComment, RawPost, RawUser } from './types'
 
+const serverURL = 'http://127.0.0.1:5000'
+
 export const useAPI = () => {
     const useUserAPI = () => userAPI
     const usePostAPI = () => postAPI
@@ -10,7 +12,7 @@ export const useAPI = () => {
 }
 const userAPI = {
     getUser: async (id: number) => {
-        const responce = await $fetch<IUser>('http://127.0.0.1:5000/user', {
+        const responce = await $fetch<IUser>(`${serverURL}/user`, {
             method: 'GET',
             params: {
                 id,
@@ -19,14 +21,14 @@ const userAPI = {
         return responce
     },
     createUser: async (data: RawUser) => {
-        const responce = await $fetch('http://127.0.0.1:5000/user', {
+        const responce = await $fetch(`${serverURL}/user`, {
             method: 'POST',
             body: data,
         })
         return responce
     },
     updateUser: async (id: number, data: any) => {
-        const responce = await $fetch('http://127.0.0.1:5000/user', {
+        const responce = await $fetch(`${serverURL}/user`, {
             method: 'PUT',
             params: {
                 id,
@@ -36,7 +38,7 @@ const userAPI = {
         return responce
     },
     deleteUser: async (id: number) => {
-        const responce = await $fetch('http://127.0.0.1:5000/user', {
+        const responce = await $fetch(`${serverURL}/user`, {
             method: 'DELETE',
             params: {
                 id,
@@ -45,7 +47,7 @@ const userAPI = {
         return responce
     },
     getPosts: async (id: number) => {
-        const responce = await $fetch<IPost[]>('http://127.0.0.1:5000/user/posts', {
+        const responce = await $fetch<IPost[]>(`${serverURL}/user/posts`, {
             method: 'GET',
             params: {
                 id,
@@ -57,13 +59,13 @@ const userAPI = {
 
 const postAPI = {
     getAll: async () => {
-        const responce = await $fetch<IPost[]>('http://127.0.0.1:5000/post/all', {
+        const responce = await $fetch<IPost[]>(`${serverURL}/post/all`, {
             method: 'GET'
         })
         return responce
     },
     getPost: async (id: number) => {
-        const responce = await $fetch<IPost>('http://127.0.0.1:5000/post', {
+        const responce = await $fetch<IPost>(`${serverURL}/post`, {
             method: 'GET',
             params: {
                 id,
@@ -72,14 +74,14 @@ const postAPI = {
         return responce
     },
     createPost: async (data: RawPost) => {
-        const responce = await $fetch('http://127.0.0.1:5000/post', {
+        const responce = await $fetch(`${serverURL}/post`, {
             method: 'POST',
             body: data,
         })
         return responce
     },
     updatePost: async (id: number, data: any) => {
-        const responce = await $fetch('http://127.0.0.1:5000/post', {
+        const responce = await $fetch(`${serverURL}/post`, {
             method: 'PUT',
             params: {
                 id,
@@ -89,7 +91,7 @@ const postAPI = {
         return responce
     },
     deletePost: async (id: number) => {
-        const responce = await $fetch('http://127.0.0.1:5000/post', {
+        const responce = await $fetch(`${serverURL}/post`, {
             method: 'DELETE',
             params: {
                 id,
@@ -98,7 +100,7 @@ const postAPI = {
         return responce
     },
     getComments: async (id: number) => {
-        const responce = await $fetch<IComment[]>('http://127.0.0.1:5000/post/comments', {
+        const responce = await $fetch<IComment[]>(`${serverURL}/post/comments`, {
             method: 'GET',
             params: {
                 id,
@@ -110,7 +112,7 @@ const postAPI = {
 
 const commentAPI = {
     getComment: async (id: number) => {
-        const responce = await $fetch<IComment>('http://127.0.0.1:5000/comment', {
+        const responce = await $fetch<IComment>(`${serverURL}/comment`, {
             method: 'GET',
             params: {
                 id,
@@ -119,14 +121,14 @@ const commentAPI = {
         return responce
     },
     createComment: async (data: RawComment) => {
-        const responce = await $fetch('http://127.0.0.1:5000/comment', {
+        const responce = await $fetch(`${serverURL}/comment`, {
             method: 'POST',
             body: data,
         })
         return responce
     },
     updateComment: async (id: number, data: any) => {
-        const responce = await $fetch('http://127.0.0.1:5000/comment', {
+        const responce = await $fetch(`${serverURL}/comment`, {
             method: 'PUT',
             params: {
                 id,
@@ -136,7 +138,7 @@ const commentAPI = {
         return responce
     },
     deleteComment: async (id: number) => {
-        const responce = await $fetch('http://127.0.0.1:5000/comment', {
+        const responce = await $fetch(`${serverURL}/comment`, {
             method: 'DELETE',
             params: {
                 id,
@@ -148,7 +150,7 @@ const commentAPI = {
 
 const authenticationAPI = {
     authenticate: async (email: string, password: string) => {
-        const responce = await $fetch('http://127.0.0.1:5000/authentication', {
+        const responce = await $fetch(`${serverURL}/authentication`, {
             method: 'GET',
             params: {
                 email,
