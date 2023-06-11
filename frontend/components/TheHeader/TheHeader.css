@@ -10,17 +10,6 @@
     justify-content: space-between;
     }
 
-.lorem {
-    font-family: 'Ubuntu Mono';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 32px;
-
-    color: #FFFFFF;
-
-}
-
 .navigation__link {
     color: white;
 
@@ -55,9 +44,8 @@
 }
 
 .navigation__avatar {
-    border-radius: inherit;
-
-    width: inherit;
-    height: inherit;
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
     aspect-ratio: 1;
 }

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useUserStore } from '../../store/userStore'
 import './TheHeader.css'
 
@@ -8,30 +9,40 @@ export default function TheHeader() {
 
     return (
         <header className="header">
-            <div className="lorem">
-                Lorem
+            <div className="title">
+                <h1>Расскажи</h1>
             </div>
             <nav className="navigation"> 
                 <ul className="navigation__list">
                     <li> 
-                        <a className="navigation__link"> 
-                            Главная     
-                        </a> 
+                        <Link to={`/`}> 
+                            <div className="navigation__link">
+                                Главная
+                            </div>
+                        </Link> 
                     </li>
                     <li> 
-                        <a className="navigation__link"> 
-                            Войти       
-                        </a> 
+                        <Link to={`/authentication`}> 
+                            <div className="navigation__link">
+                                Войти
+                            </div>
+                        </Link> 
                     </li>
                     <li> 
-                        <a className="navigation__link"> 
-                            Регистрация 
-                        </a> 
+                        <Link to={`/registration`}> 
+                            <div className="navigation__link">
+                                Регистрация
+                            </div>
+                        </Link> 
                     </li>
                 </ul>
-                <a className="navigation__profile">
-                    <img className='navigation__avatar' src={avatarURL} />
-                </a>
+                <div className="navigation__profile">
+                    {currentUser ? (
+                        <Link to={`/user/${currentUser.id}`}><img className='navigation__avatar' src={avatarURL} /></Link>
+                    ) : (
+                        <img className='navigation__avatar' src={avatarURL} />
+                    )}
+                </div>
             </nav>
         </header>
     )
