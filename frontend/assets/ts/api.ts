@@ -1,5 +1,5 @@
 import { $fetch } from 'ofetch'
-import { IUser, RawComment, RawPost, RawUser } from './types'
+import { IComment, IPost, IUser, RawComment, RawPost, RawUser } from './types'
 
 export const useAPI = () => {
     const useUserAPI = () => userAPI
@@ -44,11 +44,26 @@ const userAPI = {
         })
         return responce
     },
+    getPosts: async (id: number) => {
+        const responce = await $fetch<IPost[]>('http://127.0.0.1:5000/user/posts', {
+            method: 'GET',
+            params: {
+                id,
+            },
+        })
+        return responce
+    }
 }
 
 const postAPI = {
+    getAll: async () => {
+        const responce = await $fetch<IPost[]>('http://127.0.0.1:5000/post/all', {
+            method: 'GET'
+        })
+        return responce
+    },
     getPost: async (id: number) => {
-        const responce = await $fetch('http://127.0.0.1:5000/post', {
+        const responce = await $fetch<IPost>('http://127.0.0.1:5000/post', {
             method: 'GET',
             params: {
                 id,
@@ -82,11 +97,20 @@ const postAPI = {
         })
         return responce
     },
+    getComments: async (id: number) => {
+        const responce = await $fetch<IComment[]>('http://127.0.0.1:5000/post/comments', {
+            method: 'GET',
+            params: {
+                id,
+            },
+        })
+        return responce
+    }
 }
 
 const commentAPI = {
     getComment: async (id: number) => {
-        const responce = await $fetch('http://127.0.0.1:5000/comment', {
+        const responce = await $fetch<IComment>('http://127.0.0.1:5000/comment', {
             method: 'GET',
             params: {
                 id,

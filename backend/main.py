@@ -29,6 +29,11 @@ def apiIdUser():
     if request.method == 'DELETE':
         return userAPI['delete'](id)
 
+@app.get('/user/posts')
+def apiUserPosts():
+    userId = request.args['id']
+    return getPostsOfUser(userId)
+
 # Post api
 @app.post('/post')
 def apiCreatePost():
@@ -46,6 +51,15 @@ def apiIdPost():
         return postAPI['update'](id, data)
     if request.method == 'DELETE':
         return postAPI['delete'](id)
+
+@app.get('/post/comments')
+def apiPostComments():
+    postId = request.args['id']
+    return getCommentsOfPost(postId)
+
+@app.get('/post/all')
+def apiAllPosts():
+    return getAll(Post)
 
 # Comment api
 @app.post('/comment')
