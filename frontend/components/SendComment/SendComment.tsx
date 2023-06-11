@@ -1,11 +1,13 @@
 import { useRef } from 'react'
-import { useUserStore } from '../../store/userStore'
-import { v4 as uuidv4 } from 'uuid'
 import { useAPI } from '../../assets/ts/api'
+import { useUserStore } from '../../store/userStore'
 import { sendFile, getFileURL } from '../../assets/ts/firebase'
+import { v4 as uuidv4 } from 'uuid'
 import { RawComment } from "../../assets/ts/types";
+
 import BaseButton from '../BaseButton/BaseButton'
 import BaseInput from '../BaseInput/BaseInput'
+
 import './SendComment.css'
 
 type buttonEventHandler = React.MouseEventHandler<HTMLButtonElement>
@@ -58,7 +60,7 @@ export default function SendComment({ postId }: SendCommentProps) {
             imageURL: fileURL
         }
 
-        console.log(await commentAPI.createComment(comment))
+        await commentAPI.createComment(comment)
     }
     return (
         <form ref={form} className="comment-form">
