@@ -27,3 +27,18 @@
     grid-template-columns: 1fr;
     gap: 12px
 }
+
+@media screen and (max-width: 800px) {
+    .post-page {
+        grid-template-columns: 1fr;
+        grid-template-areas: 'user-block' 'content';
+    }
+
+    .post-page__content {
+        grid-area: content;
+    }
+
+    .post-page__user-block {
+        grid-area: user-block;
+    }
+}

@@ -53,7 +53,7 @@ export default function PostPage() {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className="post-page__user-block">
                 {user && <Link to={`/user/${user.id}`}><PostUserInfo middleName={user.middleName} firstName={user.firstName} secondName={user.secondName} date={user.birthDate} imageURL={user.avatarURL} /></Link>}
             </div>
         </div>

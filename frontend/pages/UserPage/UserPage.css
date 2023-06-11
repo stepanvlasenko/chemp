@@ -17,3 +17,10 @@
     grid-auto-rows: 1fr;
     gap: 24px;
 }
+
+@media screen and (max-width: 800px) {
+    .last-posts__list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}

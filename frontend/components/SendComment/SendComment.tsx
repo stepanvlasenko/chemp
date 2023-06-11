@@ -68,11 +68,11 @@ export default function SendComment({ postId, onCreateComment }: SendCommentProp
     return (
         <form ref={form} className="comment-form">
             <p>Оставить комментарий</p>
-            <div className='form__image'>
+            <div className='form__block'>
                 <p>Изображение:</p>
                 <BaseInput type="file" name="image" />
             </div>
-            <div className='form__content'>
+            <div className='form__block'>
                 <BaseInput type="textarea" name="content" />
                 <BaseButton text="Отправить" onClick={handleSubmit}/>
             </div>

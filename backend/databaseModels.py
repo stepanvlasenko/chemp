@@ -1,5 +1,4 @@
 from peewee import *
-from datetime import date
 
 db = SqliteDatabase('./backend/dev.db')
 

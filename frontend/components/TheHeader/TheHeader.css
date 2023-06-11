@@ -27,6 +27,7 @@
     list-style: none;
     gap: 24px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .navigation {
