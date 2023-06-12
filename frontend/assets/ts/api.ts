@@ -2,10 +2,10 @@ import { $fetch } from 'ofetch'
 import { IComment, IPost, IUser, RawComment, RawPost, RawUser } from './types'
 
 // Server URL on real server
-const serverURL = 'http://194.67.93.32:5000/'
+// const serverURL = 'http://194.67.93.32:5000/'
 
 // Server URL for dev
-// const serverURL = 'http://127.0.0.1:5000'
+const serverURL = 'http://127.0.0.1:5000'
 
 export const useAPI = () => {
     const useUserAPI = () => userAPI
