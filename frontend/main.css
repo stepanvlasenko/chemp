@@ -23,10 +23,6 @@ p {
     padding: 0;
 }
 
-.test {
-    width: 400px;
-}
-
 img {
     object-fit: cover;
 }
@@ -34,4 +30,9 @@ img {
 a {
     text-decoration: none;
     color: black;
+}
+
+.app {
+    margin: 0 auto;
+    max-width: 1200px;
 }

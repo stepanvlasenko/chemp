@@ -11,7 +11,7 @@ type buttonEventHandler = React.MouseEventHandler<HTMLButtonElement>
 
 export default function Authentication() {
     const setUser = useUserStore((state) => state.setUser)
-    const currentUser = useUserStore((state) => state.user)
+    useUserStore((state) => state.user)
 
     const authenticationAPI = useAPI().useAuthenticationAPI()
     const form = useRef<HTMLFormElement>(null)

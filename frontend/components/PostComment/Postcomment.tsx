@@ -4,6 +4,7 @@ import { useAPI } from '../../assets/ts/api'
 import { IComment, IUser } from '../../assets/ts/types'
 
 import './PostComment.css'
+import { Link } from 'react-router-dom'
 
 interface PostCommentProps {
     comment: IComment
@@ -23,7 +24,7 @@ export default function PostComment({ comment }: PostCommentProps) {
                 <div className="post-comment__user-text">
                     <div className="post-comment__info">
                         <div>
-                            <h2> {user?.middleName} {user?.firstName} {user?.secondName} </h2>
+                            <Link to={`/user/${user?.id}`}><h2> {user?.middleName} {user?.firstName} {user?.secondName} </h2></Link>
                         </div>
                         <div>
                             {comment.publishDate}
